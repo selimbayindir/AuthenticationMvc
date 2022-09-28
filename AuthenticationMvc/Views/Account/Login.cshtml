@@ -1,0 +1,39 @@
+﻿@model LoginViewModel ///oluşturduğum modeli çağırıyorum
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 borderbottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"> <!--span dan hariç hataları yakalamak için kullanıcı adı şifre uyuşmazlığında örneğin -->
+
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="UserName" class="form-label">UserName</label>
+                <input asp-for="UserName" class="form-control" placeholder="johndoe" value="" />
+                <span asp-validation-for="UserName" class="text-danger"></span> <!--username ile ilgili hataları burada yakala göster-->
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="P@ssW0rd!" value="" />
+                <span asp-validation-for="Password"  class="text-danger"></span> <!--password ile ilgili hataları burada yakala göster-->
+
+            </div>
+            <div class="form-group mb-3 d-grid">
+                <button type="submit" class="btn btn-danger d-block ">
+                    <i class="fa-solid fa-arrow-right-to-bracket me-2"></i>
+                    Login
+                </button>
+            </div>
+
+        </form>
+     
+    </div>
+</div>

@@ -1,0 +1,9 @@
+web  app
+Asp.Net Mvc
+HTTPS FALSE
+Do Not ... false
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+Font Awesome benzeri kütüphaneler Eklemek
+lib add client font awesome layouta kütüphaneyi çek býrak css olan  allcss>allmincss
+
+Data Anontation
