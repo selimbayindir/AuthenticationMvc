@@ -9,4 +9,4 @@ lib add client font awesome layouta kütüphaneyi çek bırak css olan  allcss>allmi
 Data Anontation
 
 
-Net Core Encrypt password şifreleme yapar
+Net Core Encrypt password şifreleme yapar => Md5 Salt daki

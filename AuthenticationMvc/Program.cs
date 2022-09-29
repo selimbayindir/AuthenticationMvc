@@ -14,7 +14,7 @@ namespace AuthenticationMvc
             #region MyRegion
             builder.Services.AddDbContext<DatabaseContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSqlConnection"));
                 options.UseLazyLoadingProxies();
             }
             );
