@@ -1,3 +1,6 @@
+using AuthenticationMvc.Entities;
+using Microsoft.EntityFrameworkCore;
+
 namespace AuthenticationMvc
 {
     public class Program
@@ -8,6 +11,14 @@ namespace AuthenticationMvc
 
             // Add services to the container.
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); //AddRazorRuntimeCompilation
+            #region MyRegion
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer"));
+                options.UseLazyLoadingProxies();
+            }
+            );
+            #endregion
 
             var app = builder.Build();
 

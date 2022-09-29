@@ -7,3 +7,6 @@ Font Awesome benzeri kütüphaneler Eklemek
 lib add client font awesome layouta kütüphaneyi çek býrak css olan  allcss>allmincss
 
 Data Anontation
+
+
+Net Core Encrypt password þifreleme yapar
