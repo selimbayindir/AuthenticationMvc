@@ -1,4 +1,5 @@
 using AuthenticationMvc.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthenticationMvc
@@ -18,6 +19,18 @@ namespace AuthenticationMvc
                 options.UseLazyLoadingProxies();
             }
             );
+            /// Cookie
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.Cookie.Name = ".AuthenticationMvc.auth";//bu isimle sakla kullanýcý tarayýcýsýnda 
+                    options.ExpireTimeSpan = TimeSpan.FromDays(7); //7 gün geçerli olacak
+                    options.SlidingExpiration = false; //Sistem Kullanýldýkça 7 günden daha fazla ilerlesin demek ama kapatýyoruz
+                    options.LoginPath = "/Account/Login"; //Geçersiz Olursa buraya 
+                    options.LoginPath = "/Account/Logout";//Çýkýþ yapýldýðýnda buraya
+                    options.LoginPath = "/Home/AccessDenied";//Eriþim reddedildiðinde buraya geleceksin
+
+                });
             #endregion
 
             var app = builder.Build();
@@ -30,14 +43,15 @@ namespace AuthenticationMvc
             app.UseStaticFiles();
 
             app.UseRouting();
+            //Bunu biz ekliyoruz
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-            app.Run();
+            app.Run();       
         }
     }
 }

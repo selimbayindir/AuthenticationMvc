@@ -19,6 +19,9 @@ namespace AuthenticationMvc.Entities
         public bool Active { get; set; } = false;
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
+        [Required]
+        [StringLength(50)]
+        public String Role { get; set; } = "user";
     }
 
 }

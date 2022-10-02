@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuthenticationMvc.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220929161846_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221002000931_userUpgrade")]
+    partial class userUpgrade
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,11 @@ namespace AuthenticationMvc.Migrations
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
