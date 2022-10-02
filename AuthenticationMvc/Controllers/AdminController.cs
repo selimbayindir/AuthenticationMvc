@@ -11,6 +11,7 @@ namespace AuthenticationMvc.Controllers
         public IActionResult Index()
         {
             return View();
+            //Sayfa ya giriş yapılamadığında Karşılaşılacak Sayfa
         }
     }
 }

@@ -27,11 +27,12 @@ namespace AuthenticationMvc
                     options.ExpireTimeSpan = TimeSpan.FromDays(7); //7 gün geçerli olacak
                     options.SlidingExpiration = false; //Sistem Kullanýldýkça 7 günden daha fazla ilerlesin demek ama kapatýyoruz
                     options.LoginPath = "/Account/Login"; //Geçersiz Olursa buraya 
-                    options.LoginPath = "/Account/Logout";//Çýkýþ yapýldýðýnda buraya
-                    options.LoginPath = "/Home/AccessDenied";//Eriþim reddedildiðinde buraya geleceksin
+                    options.LogoutPath = "/Account/Logout";//Çýkýþ yapýldýðýnda buraya
+                    options.AccessDeniedPath = "/Home/MyAccesDenied";//Eriþim reddedildiðinde buraya geleceksin
 
                 });
             #endregion
+
 
             var app = builder.Build();
 

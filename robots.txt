@@ -10,3 +10,7 @@ Data Anontation
 
 
 Net Core Encrypt password þifreleme yapar => Md5 Salt daki
+
+
+site.js
+buraya tostr scriptini yapýþtýr

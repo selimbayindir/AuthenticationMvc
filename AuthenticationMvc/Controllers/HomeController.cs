@@ -8,7 +8,6 @@ namespace AuthenticationMvc.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        
         public IActionResult Index()
         {
             return View();
@@ -19,8 +18,16 @@ namespace AuthenticationMvc.Controllers
         {
             return View();
         }
-
-      
+        [AllowAnonymous]
+        public IActionResult AccesDenied()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public IActionResult MyAccesDenied()
+        {
+            return View();
+        }
 
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
